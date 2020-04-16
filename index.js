@@ -1,8 +1,8 @@
 const Heading = require("discord.js");
 
 const Connect = new Heading.Client();
-const Token = "NzAwMDU2MTI0NDk3MzMwMjQ3.XpdY6g.k6AvII9QQABaPloy_uta5Yu0AHA";
-const Prefix = "!"
+const Token = "oykOiqsrF0zpB0wKBWmjlcyxVk3100vC";
+const Prefix = "pls "
 
 Connect.login(Token);
 Connect.on("ready",() => {console.log("Üdvözletem nagyuram!");});
