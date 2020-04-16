@@ -1,0 +1,14 @@
+{
+  "name": "discordbott",
+  "version": "1.0.0",
+  "description": "ez roland zseniális botja, mely mindent megcsinál neki",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Róland",
+  "license": "ISC",
+  "dependencies": {
+    "discord.js": "^12.1.1"
+  }
+}
