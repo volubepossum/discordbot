@@ -12,7 +12,11 @@ Connect.on("ready",() => {console.log("Üdvözletem nagyuram!");});
                                                                 és akkor elkezdődik a nagy kaland
                                                                 ///////////////////////////////*/
 Connect.on("message", msg =>{
+    /*if (msg.author.username === ""){
+      msg.delete();
+      msg.author.send("ezt akartad rossz helyre küldeni " + msg.content);}*/
     //console.log(msg.content);
+    //msg.client.channels.get("700327775311233044").send(msg.author + msg.content);
     if (msg.author==="ClydeBot#1") { msg.delete(); }
     if (msg.content.indexOf(Prefix)===0){
         var arg = msg.content.substring(Prefix.length).split(" ");
@@ -72,7 +76,7 @@ Connect.on("message", msg =>{
                     msg.reply("Te!");
             }else if (arg.indexOf("ki") != -1) {        
                      msg.reply("te!");
-            }else if (arg.indexOf("imádlak") != -1 && arg.indexOf("szolgám") != -1 && arg.indexOf("szolgám")-arg.indexOf("imádlak") === 1) {
+             }else if (arg.indexOf("imádlak") != -1 && arg.indexOf("szolgám") != -1 && arg.indexOf("szolgám")-arg.indexOf("imádlak") === 1) {
                     msg.reply(":kissing heart: ugyan, az az és dolgom");
             }
     }
@@ -81,6 +85,7 @@ Connect.on("message", msg =>{
         switch(arg[0]){
             case "anonim":
                 msg.delete();
+                console.log("anonim")
                 var message=[];
                 var i;
                 for (i = 1; i<arg.length; i++) {
@@ -92,8 +97,8 @@ Connect.on("message", msg =>{
                 msg.delete();
                 console.log(msg.member.roles.highest.name);
                 if (msg.member.roles.highest.name=="Király" || msg.member.roles.highest.name=="legfőbbb bizalmas") {
-                    msg.delete();
-                    var message=[];
+                    //msg.delete();
+                    var message="";
                     for (i = 1; i<arg.length; i++) {
                         message+=arg[i] + " ";
                     }
@@ -104,12 +109,11 @@ Connect.on("message", msg =>{
                 }
             case "cleanup" :
                 msg.delete();
-                if (msg.member.roles.highest.name=="Király" || msg.member.roles.highest.name=="legfőbbb bizalmas"){
-                    console.log(arg [1])
+                console.log("cleanup");
+                if (msg.member.roles.highest.name=="Király" || msg.member.roles.highest.name=="legfőbbb bizalmas"){    
                     msg.delete()
-                    var deletabi = msg.channel.messages.fetch({limit: parseInt(arg[1]) }).then(deletabi => msg.channel.bulkDelete(deletabi))
-                    console.log(deletabi);
-                    //msg.channel.bulkDelete(deletabi);
+                    var deletabi = msg.channel.messages.fetch({limit: parseInt(arg[1]) + 1 }).then(deletabi => msg.channel.bulkDelete(deletabi))
+                    //console.log(deletabi);
                 } else {
                     msg.author.send("ehhez neked nincs jogod");
                 }
