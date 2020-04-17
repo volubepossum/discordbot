@@ -1,7 +1,7 @@
 const Heading = require("discord.js");
 
 const Connect = new Heading.Client();
-const Token = "";
+const Token = process.env.SECRET;
 const Prefix = "pls "
 
 Connect.login(Token);
