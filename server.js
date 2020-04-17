@@ -80,6 +80,7 @@ Connect.on("message", msg =>{
             case "anonim":
                 msg.delete();
                 var message=[];
+                var i;
                 for (i = 1; i<arg.length; i++) {
                     message+=arg[i] + " ";
                 }
@@ -101,7 +102,7 @@ Connect.on("message", msg =>{
                 }
             case "cleanup" :
                 msg.delete();
-                if (msg.member.roles.highest.name=="Király"){
+                if (msg.member.roles.highest.name=="Király" || msg.member.roles.highest.name=="legfőbbb bizalmas"){
                     console.log(arg [1])
                     msg.delete()
                     var deletabi = msg.channel.messages.fetch({limit: parseInt(arg[1]) }).then(deletabi => msg.channel.bulkDelete(deletabi))
