@@ -72,8 +72,8 @@ Connect.on("message", msg =>{
                     msg.reply("Te!");
             }else if (arg.indexOf("ki") != -1) {        
                      msg.reply("te!");
-            }else if (arg.indexOf(":kissing heart: imádlak szolgám") != -1) {
-                    msg.reply("ugyan, az az és dolgom");
+            }else if (arg.indexOf("imádlak") != -1 && arg.indexOf("szolgám") != -1 && arg.indexOf("szolgám")-arg.indexOf("imádlak") === 1) {
+                    msg.reply(":kissing heart: ugyan, az az és dolgom");
             }
     }
     console.log(arg);
