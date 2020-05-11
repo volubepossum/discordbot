@@ -4,7 +4,7 @@ const Connect = new Heading.Client();
 const Token = process.env.SECRET;
 const Prefix = "pls "
 
-Connect.login("NzAwMDU2MTI0NDk3MzMwMjQ3.XrmT5Q.Wfgc6RwhWGC8ol50QqaUK8E7roQ");
+Connect.login(Token);
 var online = 0;
 Connect.on("ready",() => {
     console.log("Üdvözletem nagyuram!"); 
