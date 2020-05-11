@@ -106,7 +106,7 @@ Connect.on("message", msg =>{
                     msg.channel.send(message);
                 } else {
                     msg.author.send("ehhez neked nincs jogod");
-                }
+                } break;
             case "cleanup" :
                 msg.delete();
                 console.log("cleanup");
