@@ -4,8 +4,16 @@ const Connect = new Heading.Client();
 const Token = process.env.SECRET;
 const Prefix = "pls "
 
-Connect.login(Token);
-Connect.on("ready",() => {console.log("Üdvözletem nagyuram!");});
+Connect.login("NzAwMDU2MTI0NDk3MzMwMjQ3.XrmT5Q.Wfgc6RwhWGC8ol50QqaUK8E7roQ");
+var online = 0;
+Connect.on("ready",() => {
+    console.log("Üdvözletem nagyuram!"); 
+    online = 1;
+    setInterval( function(){
+        console.log("fel lettem ébresztve");
+    }, 69420)
+
+});
 
 
                                                                 /*///////////////////////////////
@@ -76,8 +84,12 @@ Connect.on("message", msg =>{
                     msg.reply("Te!");
             }else if (arg.indexOf("ki") != -1) {        
                      msg.reply("te!");
-             }else if (arg.indexOf("imádlak") != -1 && arg.indexOf("szolgám") != -1 && arg.indexOf("szolgám")-arg.indexOf("imádlak") === 1) {
-                    msg.reply(":kissing heart: ugyan, az az és dolgom");
+            }else if (arg.indexOf("imádlak") != -1 && arg.indexOf("szolgám") != -1 && arg.indexOf("szolgám")-arg.indexOf("imádlak") === 1) {
+                    msg.reply(":kissing_heart: ugyan, az az és dolgom");
+            }else if (arg.indexOf("Én?") != -1) {
+                msg.reply("Igen, Te!");
+            }else if (arg.indexOf("én?") != -1) {        
+                 msg.reply("igen, te!");
             }
     }
     console.log(arg);
@@ -117,6 +129,55 @@ Connect.on("message", msg =>{
                 } else {
                     msg.author.send("ehhez neked nincs jogod");
                 }
+           /* case "join" :
+                if (msg.author.roles.has("dj")/* || !connected){
+                    join(Queue);
+                }else {
+                    msg.delete();
+                    msg.author.send("ehhez neked nincs jogod, vagy már valahova csatlakozott a bot");
+                    break;
+                }
+                break;
+            case "leave" :
+                if (msg.author.roles.has("dj")/* || connected){
+                    leave(Queue);
+                }else {
+                    msg.delete();
+                    msg.author.send("ehhez neked nincs jogod, vagy nincs csatlakozva a bot");
+                    break;
+                }
+                break;
+            case "play" :
+                if (msg.author.roles.highest.cache.find(role => role.name === 'dj')){
+                    play(message, Queue);
+                }else {
+                    msg.delete();
+                    msg.author.send("ehhez neked nincs jogod");
+                    break;
+                }
+                var message="";
+                    for (i = 1; i<arg.length; i++) {
+                        message+=arg[i] + " ";
+                    }
+                break;
+            case "skip" :
+                if (msg.author.roles.has("dj")){
+                    skip(Queue);
+                }else {
+                    msg.delete();
+                    msg.author.send("ehhez neked nincs jogod");
+                    break;
+                }
+                break;
+            case "stop" :
+                if (msg.author.roles.has("dj")){
+                    stop(Queue);
+                }else {
+                    msg.delete();
+                    msg.author.send("ehhez neked nincs jogod");
+                    break;
+                }
+                break;*/
         }
     }
 });
